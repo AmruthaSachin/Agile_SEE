@@ -1,32 +1,27 @@
-name: Run Jest Tests
+name: Run Collision Tests
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Adjust to the branch you want to trigger on push
   pull_request:
-    branches: [main]
+    branches:
+      - main  # Trigger on pull requests to main
 
 jobs:
-  test:
+  collision-tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '14'  # Adjust according to your Node.js version
 
       - name: Install dependencies
         run: npm install
-        
 
-      - name: Make Jest executable
-        run: chmod +x ./node_modules/.bin/jest
-      
-
-      - name: Run tests
-        run: npm test
-      
+      - name: Run only collision tests
+        run: npm test tests/collision.test.js --coverage=false
