@@ -1,4 +1,4 @@
-name: Run Jest Tests for Food
+name: Run Jest Tests for Food Only
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -19,10 +19,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'  # or any version you prefer
+        node-version: '14'  # or another Node.js version you are using
 
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests for food only
+    - name: Run food tests only
       run: npx jest tests/food.test.js --coverage=false
