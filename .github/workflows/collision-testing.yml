@@ -1,32 +1,32 @@
-name: Run Jest Tests
+name: Run Collision Tests
 
 on:
   push:
-    branches: [main]
+    paths:
+      - 'collision-testing-single-player/**'
+      - '.github/workflows/collision-test.yml'
   pull_request:
-    branches: [main]
+    paths:
+      - 'collision-testing-single-player/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: collision-testing-single-player
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
-        working-directory: 'Final Project/collision-testing-single-player'
 
-      - name: Make Jest executable
-        run: chmod +x ./node_modules/.bin/jest
-        working-directory: 'Final Project/collision-testing-single-player'
-
-      - name: Run tests
+      - name: Run Jest tests
         run: npm test
-        working-directory: 'Final Project/collision-testing-single-player'
