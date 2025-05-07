@@ -1,12 +1,20 @@
-// singleplayer.js
+// src/foodGeneration.js
 
-// Existing game logic...
+export function generateFood(canvas, gridSize, snakeBody = []) {
+    let food;
+    
+    do {
+        // Generate food coordinates
+        food = {
+            x: Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize,
+            y: Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize,
+        };
+    } while (isFoodOnSnake(food, snakeBody));  // Ensure food doesn't overlap snake's body
 
-export function generateFood(canvas, gridSize) {
-    return {
-        x: Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize,
-        y: Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize
-    };
+    return food;
 }
 
-// Other game functions...
+// Helper function to check if the food is on the snake's body
+function isFoodOnSnake(food, snakeBody) {
+    return snakeBody.some(part => part.x === food.x && part.y === food.y);
+}
