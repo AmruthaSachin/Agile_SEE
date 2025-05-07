@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "test": "jest tests/speed.test.js --coverage=false"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.27.1",
