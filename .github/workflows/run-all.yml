@@ -1,0 +1,27 @@
+name: Run All Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust to the branch you want to trigger on push
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests to main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Adjust according to your Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run all tests
+        run: npm test tests/speed.test.js tests/food.test.js tests/collision.test.js --coverage=false
