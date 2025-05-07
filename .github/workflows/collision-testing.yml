@@ -1,0 +1,32 @@
+name: Run Collision Tests
+
+on:
+  push:
+    paths:
+      - 'collision-testing-single-player/**'
+      - '.github/workflows/collision-test.yml'
+  pull_request:
+    paths:
+      - 'collision-testing-single-player/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: collision-testing-single-player
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest tests
+        run: npm test
