@@ -1,0 +1,30 @@
+# .github/workflows/speed-testing.yml
+name: Speed Tests
+
+on:
+  push:
+    branches:
+      - main      # or your default branch
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # allow manual triggering
+
+jobs:
+  speed-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # or whatever you use locally
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run speed tests only
+        run: npx jest tests/speed.test.js --coverage=false
