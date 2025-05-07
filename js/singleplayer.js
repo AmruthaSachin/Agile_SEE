@@ -1,4 +1,3 @@
-import { updateSpeed } from './src/speed.js';
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -164,10 +163,7 @@ function update() {
             highScoreDisplay.textContent = highScore;
         }
 
-         // adjust path if needed
-
-        speed = updateSpeed(speed);
-
+        speed *= 0.95;
         clearInterval(gameLoopInterval);
         gameLoopInterval = setInterval(gameLoop, speed);
         food = generateFood();
