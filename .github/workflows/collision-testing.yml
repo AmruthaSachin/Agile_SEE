@@ -1,11 +1,13 @@
-name: Run Collision Tests
+name: Run Jest Tests
 
 on:
   push:
+    branches: [main]
     paths:
       - 'collision-testing-single-player/**'
-      - '.github/workflows/collision-test.yml'
+      - '.github/workflows/**'
   pull_request:
+    branches: [main]
     paths:
       - 'collision-testing-single-player/**'
 
@@ -20,13 +22,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Jest tests
+      - name: Run tests
         run: npm test
