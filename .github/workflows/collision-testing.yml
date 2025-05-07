@@ -3,20 +3,12 @@ name: Run Jest Tests
 on:
   push:
     branches: [main]
-    paths:
-      - 'collision-testing-single-player/**'
-      - '.github/workflows/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'collision-testing-single-player/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: collision-testing-single-player
 
     steps:
       - name: Checkout repository
@@ -29,6 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Make Jest executable
+        run: chmod +x ./node_modules/.bin/jest
 
       - name: Run tests
         run: npm test
