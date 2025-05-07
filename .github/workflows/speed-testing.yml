@@ -1,15 +1,17 @@
-name: Run Jest tests (Speed Only)
+# .github/workflows/speed-testing.yml
+name: Speed Tests
 
 on:
   push:
     branches:
-      - main  # or your branch name
+      - main      # or your default branch
   pull_request:
     branches:
-      - main  # or your branch name
+      - main
+  workflow_dispatch:  # allow manual triggering
 
 jobs:
-  test:
+  speed-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,10 +21,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Specify the Node version you're using
+          node-version: '16'  # or whatever you use locally
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Jest tests (Speed only)
-        run: npm test  # This now runs the tests/speed.test.js file only
+      - name: Run speed tests only
+        run: npx jest tests/speed.test.js --coverage=false
