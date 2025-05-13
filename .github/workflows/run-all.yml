@@ -24,4 +24,4 @@ jobs:
         run: npm install
 
       - name: Run all tests
-        run: npm test tests/speed.test.js tests/food.test.js tests/collision.test.js --coverage=false
+        run: npm test tests/speed.test.js tests/food.test.js tests/collision.test.js tests/high_score.test.js  --coverage=false
