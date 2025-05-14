@@ -28,7 +28,7 @@ A modern, advanced Snake Game using HTML, CSS, and JavaScript with single & mult
 **How to Run:**
 1. Download or clone this project to your computer.
    - You can use the following command if you have Git installed:
-   - git clone https://github.com/AmruthaSachin/Agile_SEE).git
+   - git clone https://github.com/AmruthaSachin/Agile_SEE.git
 
 2. Open the folder and double-click on the file named index.html
     - This will launch the game in your default browser.
