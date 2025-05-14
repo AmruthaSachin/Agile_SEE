@@ -1,4 +1,4 @@
-import { resetSpeed, increaseSpeed, initialSpeed } from '../src/speed.js';  // Import the speed functions
+import { resetSpeed, increaseSpeed, initialSpeed } from '../src/speed.js';  
 
 describe('Speed logic', () => {
     test('should reset speed to initial value when game starts', () => {
@@ -10,6 +10,6 @@ describe('Speed logic', () => {
         const initialSpeed = 100;  // initial speed of the snake
         const foodFactor = 1.1;    // factor by which speed increases after eating food
         const result = increaseSpeed(initialSpeed, foodFactor);
-        expect(result).toBeCloseTo(110, 5);  // Use toBeCloseTo to handle floating-point precision
+        expect(result).toBeCloseTo(110, 5);  
     });
 });

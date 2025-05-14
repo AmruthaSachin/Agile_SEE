@@ -4,13 +4,13 @@ import { checkCollision } from '../src/collision.js';
 describe("checkCollision", () => {
 
     test("should return true if snake head collides with boundaries", () => {
-        const canvasWidth = 400;
-        const canvasHeight = 400;
+        const canvasWidth = 480;
+        const canvasHeight = 480;
 
         expect(checkCollision([{ x: -10, y: 200 }], canvasWidth, canvasHeight)).toBe(true);
-        expect(checkCollision([{ x: 410, y: 200 }], canvasWidth, canvasHeight)).toBe(true);
+        expect(checkCollision([{ x: 490, y: 200 }], canvasWidth, canvasHeight)).toBe(true);
         expect(checkCollision([{ x: 200, y: -10 }], canvasWidth, canvasHeight)).toBe(true);
-        expect(checkCollision([{ x: 200, y: 410 }], canvasWidth, canvasHeight)).toBe(true);
+        expect(checkCollision([{ x: 200, y: 490 }], canvasWidth, canvasHeight)).toBe(true);
     });
 
     test("should return true if snake head collides with its body", () => {

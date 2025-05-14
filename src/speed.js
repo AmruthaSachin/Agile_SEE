@@ -1,16 +1,16 @@
-let currentSpeed = 100;  // Set the initial speed
+let currentSpeed = 100; 
 
-// Function to reset speed when the game starts
+
 export function resetSpeed() {
-    currentSpeed = 100;  // Reset to initial value
+    currentSpeed = 100;  
     return currentSpeed;
 }
 
-// Function to increase speed when the snake eats food
+
 export function increaseSpeed(speed, factor) {
-    currentSpeed = speed * factor;  // Increase speed by the given factor
+    currentSpeed = speed * factor;  
     return currentSpeed;
 }
 
-// Export the initial speed variable
+
 export const initialSpeed = 100;

@@ -4,7 +4,7 @@ export function generateFood(canvas, gridSize, snakeBody = []) {
     let food;
     
     do {
-        // Generate food coordinates
+     
         food = {
             x: Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize,
             y: Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize,

@@ -1,10 +1,9 @@
 // tests/food.test.js
 
-import { generateFood } from '../src/foodGeneration.js'; // Import the function directly
+import { generateFood } from '../src/foodGeneration.js';
 
-// Mock the canvas size and grid size
-const canvas = { width: 400, height: 400 };  // Adjust as per your canvas size
-const gridSize = 10;  // Adjust the grid size as needed
+const canvas = { width: 480, height: 480 };  
+const gridSize = 10;  
 
 describe("generateFood", () => {
     
@@ -27,7 +26,7 @@ describe("generateFood", () => {
     });
 
     test("should not generate food on the snake's body", () => {
-        // Sample snake body positions (each part has x and y coordinates)
+        
         const snakeBody = [
             { x: 50, y: 50 },
             { x: 60, y: 50 },
